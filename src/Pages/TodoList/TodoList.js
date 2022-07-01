@@ -1,11 +1,13 @@
+
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Loading';
-
+import edit from '../../pen-to-square-solid.svg'
 const TodoList = () => {
 
     const { data: allTask, isLoading, refetch } = useQuery('task', () => fetch('http://localhost:5000/task').then(res => res.json()))
 
+    const [taskEdit, settaskEdit] = useState(false);
 
     // if(isLoading){
     //     return <Loading></Loading>
@@ -59,8 +61,13 @@ const TodoList = () => {
             })
     }
 
+
+    const editTask = (id) =>{
+        console.log(id)
+        settaskEdit(true)
+    }
     return (
-        <div className="card min-h-[500px] w-[80%] my-5 md:w-[70%] lg:w-1/2 mx-auto bg-accent shadow-xl">
+        <div className="card min-h-[500px] h-screen w-[80%] my-5 md:w-[70%] lg:w-1/2 mx-auto bg-accent border-2 shadow-xl">
             <div className="card-body ">
 
                 <h2 className=" font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 text-center ">To Do List </h2>
@@ -73,8 +80,8 @@ const TodoList = () => {
                     allTask && allTask.map(task =>
                         <div className='shadow-2xl w-full lg:w-[80%] bg-orange-100 p-2 align-center mx-auto flex my-1/2 rounded'>
                             <input onClick={() => taskComplete(task._id)} type="checkbox" className="checkbox mr-3" />
-                            <h1 className='w-[70%]'>Tast Details {task.task} </h1>
-                            <h1>Edit</h1>
+                            <h1 className='w-[70%]'>{task.task} </h1>
+                            <img src={edit} onClick={()=>editTask(task._id)} alt="" className='cursor-pointer mx-auto w-[25px]' />                                                      
                         </div>
                     )
                 }

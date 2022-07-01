@@ -6,21 +6,6 @@ const CompleteTask = () => {
 
     return (
         <div class="card min-h-[500px]  w-1/2 mx-auto bg-accent shadow-xl">
-            {/* <div class="card-body mb-8">
-                <h2 class=" font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 text-center ">Task Completed {allTask && allTask.length}</h2>
-
-                <div>
-                    {
-                        allTask && allTask.map(task =>
-                            <div className='shadow-2xl bg-orange-100 p-2 align-center mx-12 flex m-3'>
-                                <input type="checkbox" class="checkbox mr-3" disabled />
-                                <h1 className='w-[80%]'>Tast Details {task.task} </h1>
-                                <h1>Completed</h1>
-                            </div>
-                        )
-                    }
-                </div>
-            </div> */}
             <div className='flex mx-auto mt-5 items-center'>
             <img className='mx-2 w-[30px]' src={checked} alt=""/>
             <h2 class="my-3 font-bold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 text-center "> Task Completed</h2>
